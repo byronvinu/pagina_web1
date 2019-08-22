@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-title = "Academic"
+title = "Acerca de:"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 hero_media = "hero-academic.png"
@@ -38,9 +38,10 @@ hero_media = "hero-academic.png"
   label = "Get Started"
   icon_pack = "fas"
   icon = "download"
-  
+
+
 [cta_alt]
-  url = "https://sourcethemes.com/academic/"
+  url = "/img/Smart_Fancy_CV.pdf"
   label = "View Documentation"
 
 # Note. An optional note to show underneath the links.
@@ -51,5 +52,7 @@ hero_media = "hero-academic.png"
 **The Best Way to Create the Website You Want from Markdown (or Jupyter/RStudio)**
 
 Build **Anything** with Widgets
+
+- Generating a PDF document using the `bookdown::pdf_document2` format: [img/Smart_Fancy_CV.pdf](/img/Smart_Fancy_CV.pdf)
 
 <span style="text-shadow: none;"><a class="github-button" href="https://github.com/gcushen/hugo-academic" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span>
