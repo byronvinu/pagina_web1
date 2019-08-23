@@ -37,6 +37,9 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/byronvinu  
+- icon: file-alt
+  icon_pack: fas
+  link: /img/Smart_Fancy_CV.pdf
 superuser: true
 user_groups:
 - Researchers
