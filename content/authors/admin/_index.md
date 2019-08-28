@@ -1,8 +1,7 @@
 ---
 authors:
 - admin
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+
 education:
   courses:
   - course: PhD in Artificial Intelligence
@@ -46,6 +45,6 @@ user_groups:
 - Visitors
 ---
 
-aqui poner info de mi 
+Soy un gran apasionado por el análisis y manipulación de datos mediante el uso de herramientas libres. Me considero de nivel intermedio en el desarrollo de aplicaciones web con shiny. 
 
 
