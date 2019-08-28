@@ -5,12 +5,20 @@
     <link>/tags/regression/</link>
       <atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     <description>regression</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><lastBuildDate>Tue, 27 Aug 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>regression</title>
       <link>/tags/regression/</link>
     </image>
+    
+    <item>
+      <title>Situación de la desnutrición crónica en niños y niñas de los servicios de desarrollo infantil integral del Ecuador</title>
+      <link>/publication/desnutricion/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/desnutricion/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hello R Markdown</title>

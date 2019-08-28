@@ -20,7 +20,7 @@
 #  weight = 30
 
 [[main]]
-  name = "Publications"
+  name = "Publicaciones"
   url = "#publications"
   weight = 30
 
@@ -30,7 +30,7 @@
 #  weight = 50
 
 [[main]]
-  name = "Contact"
+  name = "Contacto"
   url = "#contact"
   weight = 50
 
