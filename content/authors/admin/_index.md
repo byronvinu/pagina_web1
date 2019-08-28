@@ -4,20 +4,21 @@ authors:
 
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
+  - course: Estadístico
+    institution: Universidad Central del Ecuador
+    year: 2014
+  - course: Comercio Exterior 
+    institution: Universidad ute 
     year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
+  - course: Mastér Estadística Aplicada
+    institution: Universidad de Granada
+    year: 2018
 email: ""
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Machine Learning
+- Software libre
+- Shiny apps
+
 name: Byron Vinueza
 organizations:
 - name: Universidad Cental del Ecuador
