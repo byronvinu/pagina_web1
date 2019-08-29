@@ -1,0 +1,69 @@
+---
+title: 'GRAFICADOR DE FUNCIONES '
+author: admin
+date: '2019-08-29'
+slug: graficador-de-funciones
+categories:
+  - R
+tags:
+  - Shiny
+subtitle: ''
+summary: En este post se muestra como crear una aplicación web para graficar funciones mediante el uso de las librerías shiny y  ggplot2.
+authors: [admin]
+lastmod: '2019-08-29T09:31:14-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="intro" class="section level1">
+<h1>Intro</h1>
+<p>En este post, veremos como crear una aplicación web en <em>shiny</em> que genere gráficos de funciones. Si no conoces que es shiny, mira la presentación realizada por Manuel Oviedo <a href="https://rpubs.com/moviedo/shiny">aquí</a></p>
+</div>
+<div id="inicio" class="section level1">
+<h1>Inicio</h1>
+<p>Los paquetes necesarios son:</p>
+<pre class="r"><code>library(shiny)
+library(ggplot2)</code></pre>
+</div>
+<div id="interfaz-ui" class="section level1">
+<h1>Interfaz (UI)</h1>
+<p>En esta parte de la aplicación se tiene tres widget, el primero un <em>textInput()</em> donde se ingresa la función a evaluar y dos <em>numericInput</em> que definen el recorido de la variable x.</p>
+<pre class="r"><code>ui &lt;- shinyUI( 
+  fluidPage( sidebarPanel( 
+    # Titulo de la app
+    titlePanel(&quot;Graficador de funciones&quot;),
+    # ingreso de la funcion 
+    textInput(&quot;funcion&quot;, &quot;Ingrese la función&quot;, &quot;sin(x)&quot;),
+    #ingreso de 
+    numericInput(&quot;from&quot;, &quot;Desde:&quot;, 0, min = -100, max = 100) ,
+    numericInput(&quot;to&quot;, &quot;Hasta:&quot;, 10, min = -100, max = 100) ),
+      mainPanel(
+        plotOutput(&quot;distPlot&quot;)
+      )
+    )
+  )</code></pre>
+</div>
+<div id="server" class="section level1">
+<h1>Server</h1>
+<p>En esta parte de la aplicación se evalua la función ingresada en el <em>textInput</em>, para poder realizar esta operación se utiliza la función <em>parse()</em>, la cual permite transformar el string ingresado en una expresión.</p>
+<pre class="r"><code>server &lt;- function(input, output,session) { 
+  
+  datos&lt;-reactive( { 
+   x&lt;-seq(input$from,input$to,by = 0.01)
+   y&lt;- eval(parse(text = paste(input$funcion)))
+   datos&lt;-data.frame(x,y)
+  })
+  output$distPlot &lt;- renderPlot({
+    ggplot(datos(),aes(x,y))+
+      geom_line(colour=&#39;red&#39;)
+  })
+}</code></pre>
+<p>El resultado final es:</p>
+<p><img src="Shiny.gif" /></p>
+</div>

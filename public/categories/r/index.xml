@@ -5,7 +5,7 @@
     <link>/categories/r/</link>
       <atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><lastBuildDate>Thu, 29 Aug 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>R</title>
@@ -13,51 +13,58 @@
     </image>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <title>GRAFICADOR DE FUNCIONES </title>
+      <link>/post/graficador-de-funciones/</link>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/graficador-de-funciones/</guid>
       <description>
 
 
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;intro&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Intro&lt;/h1&gt;
+&lt;p&gt;En este post, veremos como crear una aplicación web en &lt;em&gt;shiny&lt;/em&gt; que genere gráficos de funciones. Si no conoces que es shiny, mira la presentación realizada por Manuel Oviedo &lt;a href=&#34;https://rpubs.com/moviedo/shiny&#34;&gt;aquí&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
+&lt;div id=&#34;inicio&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Inicio&lt;/h1&gt;
+&lt;p&gt;Los paquetes necesarios son:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(shiny)
+library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;div id=&#34;interfaz-ui&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Interfaz (UI)&lt;/h1&gt;
+&lt;p&gt;En esta parte de la aplicación se tiene tres widget, el primero un &lt;em&gt;textInput()&lt;/em&gt; donde se ingresa la función a evaluar y dos &lt;em&gt;numericInput&lt;/em&gt; que definen el recorido de la variable x.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ui &amp;lt;- shinyUI( 
+  fluidPage( sidebarPanel( 
+    # Titulo de la app
+    titlePanel(&amp;quot;Graficador de funciones&amp;quot;),
+    # ingreso de la funcion 
+    textInput(&amp;quot;funcion&amp;quot;, &amp;quot;Ingrese la función&amp;quot;, &amp;quot;sin(x)&amp;quot;),
+    #ingreso de 
+    numericInput(&amp;quot;from&amp;quot;, &amp;quot;Desde:&amp;quot;, 0, min = -100, max = 100) ,
+    numericInput(&amp;quot;to&amp;quot;, &amp;quot;Hasta:&amp;quot;, 10, min = -100, max = 100) ),
+      mainPanel(
+        plotOutput(&amp;quot;distPlot&amp;quot;)
+      )
+    )
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;server&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Server&lt;/h1&gt;
+&lt;p&gt;En esta parte de la aplicación se evalua la función ingresada en el &lt;em&gt;textInput&lt;/em&gt;, para poder realizar esta operación se utiliza la función &lt;em&gt;parse()&lt;/em&gt;, la cual permite transformar el string ingresado en una expresión.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- function(input, output,session) { 
+  
+  datos&amp;lt;-reactive( { 
+   x&amp;lt;-seq(input$from,input$to,by = 0.01)
+   y&amp;lt;- eval(parse(text = paste(input$funcion)))
+   datos&amp;lt;-data.frame(x,y)
+  })
+  output$distPlot &amp;lt;- renderPlot({
+    ggplot(datos(),aes(x,y))+
+      geom_line(colour=&amp;#39;red&amp;#39;)
+  })
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El resultado final es:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Shiny.gif&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

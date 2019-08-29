@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Byronvinu</title>
-    <link>/authors/admin/</link>
-      <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
-    <description>Byronvinu</description>
+    <title>Shiny | Byronvinu</title>
+    <link>/tags/shiny/</link>
+      <atom:link href="/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <description>Shiny</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><lastBuildDate>Thu, 29 Aug 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
-      <title>Byronvinu</title>
-      <link>/authors/admin/</link>
+      <title>Shiny</title>
+      <link>/tags/shiny/</link>
     </image>
     
     <item>
@@ -67,14 +67,6 @@ library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;Shiny.gif&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Situación de la desnutrición crónica en niños y niñas de los servicios de desarrollo infantil integral del Ecuador</title>
-      <link>/publication/desnutricion/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/desnutricion/</guid>
-      <description></description>
     </item>
     
   </channel>
