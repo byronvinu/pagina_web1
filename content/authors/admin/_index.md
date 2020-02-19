@@ -21,7 +21,7 @@ interests:
 
 name: Byron Vinueza
 organizations:
-- name: Universidad Cental del Ecuador
+- name: Universidad Central del Ecuador
   url: ""
 role: Estadístico - Apasionado por los datos
 social:
