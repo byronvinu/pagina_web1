@@ -39,13 +39,13 @@ social:
   link: https://github.com/byronvinu  
 - icon: file-alt
   icon_pack: fas
-  link: /img/Smart_Fancy_CV.pdf
+  link: /img/CV_BYRON_VINUEZA.pdf
 superuser: true
 user_groups:
 - Researchers
 - Visitors
 ---
 
-Soy un gran apasionado por el análisis y manipulación de datos mediante el uso de herramientas libres. Me considero de nivel intermedio en el desarrollo de aplicaciones web con shiny. 
+Soy un gran apasionado por el análisis, manipulación y ciencia de datos mediante el uso de herramientas libres. 
 
 
